@@ -89,6 +89,10 @@ public class MembersDTO {
 		}
 		this.uip = uip;
 	}
+	
+	public void setUip(String uip) {
+		this.uip = uip;
+	}
 	public String getWdate() {
 		return wdate;
 	}

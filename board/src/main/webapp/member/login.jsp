@@ -39,7 +39,7 @@
 		<div class="mb-3 mt-3">
 			<div class="row">
 				<div class="offset-md-8 col-md-4 text-end">
-					<label><input type="checkbox" name="huid" value="ok" />
+					<label><input type="checkbox" name="huid" value="ok" onClick="isChecked();"/>
 						아이디 기억 </label>
 				</div>
 			</div>
@@ -80,4 +80,5 @@
 		</div>
 	</div>
 </div>
-<script src=js/form.js></script>
+<script src="js/cookie.js"></script>
+<script src="js/form.js"></script>

@@ -1,10 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+<%! String message = null; %>
+<%
+	message = (String)request.getAttribute("message");
+	if (message != null) {
+%>
+	<script>
+		alert("<%=message%>");
+	</script>
+<%
+	}
+%>
 
 <h1 class="my-5 text-center">MY BBS 회원가입</h1>
 <div class="container mb-5">
-	<form name="loginform" class="loginform" action="" method="post">
+	<form name="loginform" class="loginform" action="/board/MembersLoading" method="post">
 		<div class="mb-3 mt-3">
 			<div class="row">
 				<label for="userid" class="col-md-3 form-label">아이디 : </label>
@@ -40,7 +51,7 @@
 				</div>
 				<div class="col-md-6 text-start">
 					<button type="button" class="btn btn-primary mx-2 px-5"
-						onClick="loginSubmit()">로그인</button>
+						onClick="loginSubmit();">로그인</button>
 				</div>
 			</div>
 		</div>
@@ -55,7 +66,7 @@
 		</div>
 	</form>
 </div>
-<div class="container wh600">
+<div class="container wh600 mb-5 pb-5">
 	<div class="row">
 		<div class="col-md-6">
 			<div class="d-grid">
@@ -69,3 +80,4 @@
 		</div>
 	</div>
 </div>
+<script src=js/form.js></script>

@@ -2,14 +2,12 @@
 
 import java.io.IOException;
 
+import board.MemberDDL;
+import board.MembersDTO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
-import board.MembersDTO;
-import board.DBConnect;
-import board.MemberDDL;
 
 
 public class MembersOk extends HttpServlet {

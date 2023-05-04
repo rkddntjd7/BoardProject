@@ -10,8 +10,28 @@
   	<description></description>
   	<servlet-class>MembersOk</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>MembersLoading</servlet-name>
+  	<display-name>MembersLoading</display-name>
+  	<description></description>
+  	<servlet-class>MembersLoading</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>LogOut</servlet-name>
+  	<display-name>LogOut</display-name>
+  	<description></description>
+  	<servlet-class>LogOut</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>MembersOk</servlet-name>
   	<url-pattern>/MembersOk</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>MembersLoading</servlet-name>
+  	<url-pattern>/MembersLoading</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LogOut</servlet-name>
+  	<url-pattern>/LogOut</url-pattern>
   </servlet-mapping>
 </web-app>

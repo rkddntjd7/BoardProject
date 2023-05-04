@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import web12.netmusecom.DBConnect;
 public class MemberDDL {
 	
 	// 멤버 테이블에 글 등록 하는 메소드
@@ -12,7 +14,8 @@ public class MemberDDL {
 		PreparedStatement pstmt = null;
 		int flag = 0;
 		try {
-			conn =  DBConnect.initConnection(); // Connection 객체에서 conn 받아오기
+//			conn =  DBConnect.initConnection();
+			conn = new DBConnect().getConn();// Connection 객체에서 conn 받아오기
 			String query = "insert into members"
 							+ "(userid, userpass, username, useremail, postcode, addr, detailaddr, tel, uip)"
 							+ "values"
@@ -53,7 +56,8 @@ public class MemberDDL {
     	boolean checkUser = false;
     	String sql = "select * from members where userid=? and userpass=?";
     	try {
-    	   conn = DBConnect.initConnection();  //Connection 객체에서 conn 받아오기	
+//    	   conn = DBConnect.initConnection();
+    	   conn = new DBConnect().getConn();//Connection 객체에서 conn 받아오기	
 		   ps = conn.prepareStatement(sql);
 		   ps.setString(1, dto.getUserid());
 		   ps.setString(2, dto.getUserpass());

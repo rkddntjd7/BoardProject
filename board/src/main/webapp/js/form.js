@@ -154,3 +154,17 @@ function register(){
    // 이상이 없을 경우 submit
    document.registerform.submit();
 }
+
+function loginSubmit() {
+	const form = document.loginform;
+	if (form.userid.value == "") {
+		alert("아이디를 입력하세요.");
+		form.userid.focue();
+		return false;
+	} else if (form.userpass.value == "") {
+		alert("비밀번호를 입력하세요.");
+		from.userpass.focus();
+		return false;
+	}
+	form.submit();
+}

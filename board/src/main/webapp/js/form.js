@@ -186,6 +186,122 @@ function loginSubmit() {
 	form.submit();
 }
 
+
+
+
+function register2() {
+	//변수 정의
+	const userid = document.getElementById("userid");
+	const userpass = document.getElementById("userpass");
+	const reuserpass = document.getElementById("reuserpass");
+	const username = document.getElementById("username");
+	const useremail = document.getElementById("useremail");
+	const postcode = document.getElementById("postcode");
+	const addr = document.getElementById("addr");
+	const detailaddr = document.getElementById("detailaddr");
+	const tel1 = document.getElementById("tel1");
+	const tel2 = document.getElementById("tel2");
+	const tel3 = document.getElementById("tel3");
+	const tel = tel1.value + "-" + tel2.value + "-" + tel3.value;
+	const useridok = document.getElementById("useridok");
+
+	//아이디 확인
+	if (userid.value == "") {
+		alert("아이디를 입력하세요.");
+		userid.focus();
+		return false;
+	}
+	else if (!uidPw.test(userid.value)) {
+		alert("아이디는 영문,숫자 4자 이상 8자 이하 입니다.");
+		userid.value = "";
+		userid.focus();
+		return false;
+	}
+	/*
+	else if(useridok.value==""){
+	   alert("아이디 중복 확인을 하세요.");
+	   userid.focus();
+	   return false;
+	}
+	
+	else if (userpass.value == "") {
+		alert("비밀번호를 입력 하세요.");
+		userpass.focus();
+		return false;
+	}
+	*/
+	else if (userpass.value != "" && !uidPw.test(userpass.value)) {
+		alert("비밀번호는 영문,숫자 4자 이상 8자 이하 입니다.");
+		userpass.value = "";
+		userpass.focus();
+		return false;
+	}
+	else if (userpass.value != reuserpass.value) {
+		alert("비밀번호가 다릅니다. 비밀번호를 다시 확인하세요.");
+		reuserpass.value = "";
+		reuserpass.focus();
+		return false;
+	}
+	else if (username.value == "") {
+		alert("이름을 입력 하세요.");
+		username.focus();
+		return false;
+	}
+	else if (!uname.test(username.value)) {
+		alert("이름은 한글 또는 영문으로 2자 이상 적어 주세요.");
+		username.focus();
+		return false;
+	}
+	else if (useremail.value == "") {
+		alert("이메일을 입력 하세요.");
+		useremail.focus();
+		return false;
+	}
+	else if (!uemail.test(useremail.value)) {
+		alert("이메일 형식이 아닙니다. 다시 입력하세요.");
+		useremail.focus();
+		return false;
+	}
+	else if (postcode.value == "") {
+		alert("주소를 입력하세요.");
+		postcode.focus();
+		return false;
+	}
+	else if (detailaddr.value == "") {
+		alert("상세주소를 입력하세요.");
+		detailaddr.focus();
+		return false;
+	}
+	else if (tel1.value == "") {
+		alert("전화번호를 입력하세요.");
+		tel1.focus();
+		return false;
+	}
+	else if (tel2.value == "") {
+		alert("전화번호를 입력하세요.");
+		tel2.focus();
+		return false;
+	}
+	else if (tel3.value == "") {
+		alert("전화번호를 입력하세요.");
+		tel3.focus();
+		return false;
+	}
+	else if (!utel.test(tel)) {
+		alert("전화번호 형식이 아닙니다. 다시 입력하세요.");
+		tel1.focus();
+		return false;
+	}
+	document.getElementById("tel").value = tel;
+
+	// 이상이 없을 경우 submit
+	document.edtregisterform.submit();
+}
+
+
+
+
+
 function isChecked() {
 	const chk = document.loginform.huid;
 	const is_checked = chk.checked;

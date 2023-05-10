@@ -60,7 +60,7 @@
 			<div class="row">
 				<div class="offset-md-5 col-md-7 text-end">
 					<a href="?fname=member/register" class="me-3">회원가입</a>
-					 <a href="#">아이디/패스워드 찾기</a>
+					 <a href="javascript:void(0)" onclick="findIdPw();">아이디/패스워드 찾기</a>
 				</div>
 			</div>
 		</div>

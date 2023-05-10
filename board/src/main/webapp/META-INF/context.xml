@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+<Resource
+	name="jdbc/board"
+	auth="Container"
+	type="javax.sql.DataSource"
+	username="root"
+	password="uskang0208!"
+	driverClassName="com.mysql.cj.jdbc.Driver"
+	url="jdbc:mysql://localhost:3306/board?useUnicode=true&amp;characterEncoding=UTF-8"
+	maxActive="80"
+	maxWait="1000"
+	removeAbandoned="true"
+/>
+</Context>

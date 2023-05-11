@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Vector;
 
 public class MemberDDL {
@@ -102,6 +103,37 @@ public class MemberDDL {
        
     }
     
+    
+    //AllSelect
+    public static int getAllSelect() {
+    	Connection conn = null;
+    	Statement st = null;
+    	ResultSet rs = null;
+    	String sql = null;
+    	int allCount = 0;
+    	sql = "select count(*) from members";
+    	try {
+    		conn = new DBConnect().getConn();
+    		st = conn.createStatement();
+    		rs = st.executeQuery(sql);
+    		while(rs.next()) {
+    		allCount = rs.getInt(1);
+    		}
+    		
+//    		System.out.println(allCount);
+    	} catch (Exception e) {
+    		
+    	} finally {
+    		try { 
+                if(rs != null) rs.close();
+                if(st != null) st.close(); 
+                  if(conn != null) conn.close();
+             }catch(SQLException e) {}
+		}
+    	return allCount;
+    }
+    
+    
     //select
     public static Vector<MembersDTO> getSelect(String str) {
         Connection conn = null;
@@ -144,7 +176,7 @@ public class MemberDDL {
         return data;
      }
     
-    //select 오버로딩
+    //select overload
     public static Vector<MembersDTO> getSelect(String str1, String str2, int opt) {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -169,6 +201,52 @@ public class MemberDDL {
               MembersDTO mb = new MembersDTO();
               mb.setUserid(rs.getString("userid"));
               mb.setUserpass(rs.getString("userpass"));
+              data.add(mb);
+           }
+         
+        }catch(SQLException e) {}
+        finally {
+           try { 
+               if(rs != null) rs.close();
+               if(ps != null) ps.close(); 
+                 if(conn != null) conn.close();
+            }catch(SQLException e) {}
+        }
+        return data;
+     }
+    
+    
+  //목록 select overload
+    public static Vector<MembersDTO> getSelect(int limitNum, int listNum) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql = "select * from members order by num desc limit ? , ?";
+        
+        Vector<MembersDTO> data = new Vector<>();
+        conn = new DBConnect().getConn();
+        try {
+          ps = conn.prepareStatement(sql);
+          ps.setInt(1, limitNum);
+          ps.setInt(2, listNum);
+          
+          System.out.println(ps); 
+          rs = ps.executeQuery();
+       
+           while(rs.next()) {
+              MembersDTO mb = new MembersDTO();
+              mb.setNum(rs.getInt("num"));
+              mb.setUserid(rs.getString("userid"));
+              mb.setUserpass(rs.getString("userpass"));
+              mb.setUsername(rs.getString("username"));
+              mb.setUseremail(rs.getString("useremail"));
+              mb.setPostcode(rs.getInt("postcode"));
+              mb.setAddr(rs.getString("addr"));
+              mb.setDetailaddr(rs.getString("detailaddr"));
+              mb.setTel(rs.getString("tel"));
+              mb.setLevel(rs.getInt("level"));
+              mb.setUip(rs.getString("uip"));
+              mb.setWdate(rs.getString("wdate"));
               data.add(mb);
            }
          

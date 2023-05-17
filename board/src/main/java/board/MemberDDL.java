@@ -51,6 +51,36 @@ public class MemberDDL {
     }
     
     //멤버 수정하는 메소드
+    public int update(int level, int num) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        int flag = 0;
+        try {
+           conn = new DBConnect().getConn();
+           String query = "";
+
+              query = "update members set level=? where num=?";
+              pstmt = conn.prepareStatement(query);
+               pstmt.setInt(1, level);
+               pstmt.setInt(2, num);
+               
+               flag = pstmt.executeUpdate();
+               
+           }catch(Exception e) {
+              e.printStackTrace();
+           }finally {
+              try { 
+                 if(pstmt != null) pstmt.close(); 
+                  if(conn != null) conn.close();
+              }catch(SQLException e) {}
+           }
+
+              return flag;
+           
+        }
+    	
+    
+    
     public boolean update(MembersDTO dto, String user) {
        Connection conn = null;
        PreparedStatement pstmt = null;

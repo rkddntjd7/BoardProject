@@ -51,6 +51,8 @@
 </style>
 <html>
 <body>
+	<jsp:include page=""></jsp:include>
+
 	<div class="container">
 	<h1>게시글 쓰기</h1>
 		<form action="BoardWriteProc.jsp" method="post">

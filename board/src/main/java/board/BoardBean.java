@@ -1,6 +1,7 @@
 package board;
 
 public class BoardBean {
+
 	private int num;
 	private String writer;
 	private String email;
@@ -12,7 +13,6 @@ public class BoardBean {
 	private int re_level;
 	private int readcount;
 	private String content;
-	
 	
 	public int getNum() {
 		return num;

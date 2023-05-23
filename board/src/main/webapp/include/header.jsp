@@ -45,7 +45,7 @@
                <a href="#">공지사항</a>
                <a href="#">갤러리</a>
                <a href="#">컬럼게시판</a>
-               <a href="BoardWriteForm.jsp">자유게시판</a>
+               <a href="BoardList.jsp">자유게시판</a>
            </nav>
        </div>
    </div>
